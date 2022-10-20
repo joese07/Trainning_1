@@ -1,7 +1,7 @@
 ﻿using System;
 namespace challenge_CRUD.Models
 {
-    public class Dokter
+    public class Dokter 
     {
         public Dokter(int Id, string Nama, string Jenis_kelamin, string No_telepon, string Alamat, int Id_Spesialis)
         {

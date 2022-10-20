@@ -125,7 +125,7 @@ namespace challenge_CRUD.Repositories.Data
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
 
-                sqlCommand.CommandText = "SELECT * FROM Dokter WHERE Id = @id";
+                sqlCommand.CommandText = "SELECT * FROM Dokter WHERE Id = @id;";
                 SqlParameter ParameterId = new SqlParameter();
                 ParameterId.ParameterName = "@id";
                 ParameterId.SqlDbType = System.Data.SqlDbType.Int;
@@ -312,6 +312,56 @@ namespace challenge_CRUD.Repositories.Data
 
                 return result;
             }
+        }
+
+        public List<DokterView> Show()
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "localhost";
+            builder.UserID = "sa";
+            builder.Password = "Misdinar7;";
+            builder.InitialCatalog = "Puskesmas";
+
+            SqlConnection sqlConnection = new SqlConnection(builder.ConnectionString);
+            List<DokterView> dokters = new List<DokterView>();
+            try
+            {
+
+                // Connect to SQL
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+
+                sqlCommand.CommandText = "SELECT Dokter.Id, Dokter.Nama, Dokter.Jenis_kelamin, Dokter.No_telepon, Dokter.Alamat, Spesialis.Nama FROM Dokter INNER JOIN Spesialis ON Dokter.Id_Spesialis = Spesialis.Id;";
+
+
+                Console.WriteLine("\n");
+
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    if (sqlDataReader.HasRows)
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                             DokterView dokterView= new DokterView(Convert.ToInt32(sqlDataReader[0]), sqlDataReader[1].ToString(), sqlDataReader[2].ToString(), sqlDataReader[3].ToString(), sqlDataReader[4].ToString(), sqlDataReader[5].ToString());
+                            dokters.Add(dokterView);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data Found ");
+                    }
+                    sqlDataReader.Close();
+                }
+                sqlConnection.Close();
+
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            return dokters;
         }
     }
 }

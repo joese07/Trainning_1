@@ -20,7 +20,7 @@ namespace challenge_CRUD
             //    Console.WriteLine("Nama Spesialis : " + item.Nama);
             //    Console.WriteLine("Catatan : " + item.Catatan);
             //    Console.WriteLine();
-            //}
+            //   }
 
             //READ SELECT Spesialis
             //var selectData = spesialisRepositories.Get(3);
@@ -217,7 +217,7 @@ namespace challenge_CRUD
             //var delete = obatRepositories.Delete(1005);
 
             //READ Dokter
-            //DokterRepositories dokterRepositories = new DokterRepositories();
+            DokterRepositories dokterRepositories = new DokterRepositories();
             //var data = dokterRepositories.Get();
             //foreach (var item in data)
             //{
@@ -226,23 +226,35 @@ namespace challenge_CRUD
             //    Console.WriteLine("Jenis Kelamin  : " + item.Jenis_kelamin);
             //    Console.WriteLine("No Telepon : " + item.No_telepon);
             //    Console.WriteLine("Alamat : " + item.Alamat);
-            //    Console.WriteLine("ID Spesialis : " + item.Id_Spesialis);
+            //    Console.WriteLine("Id Spesialis : " + item.Id_Spesialis);
             //    Console.WriteLine();
             //}
 
+            var data = dokterRepositories.Show();
+            foreach (var item in data)
+            {
+                Console.WriteLine("ID dokter : " + item.Id);
+                Console.WriteLine("Nama  : " + item.Nama);
+                Console.WriteLine("Jenis Kelamin  : " + item.Jenis_kelamin);
+                Console.WriteLine("No Telepon : " + item.No_telepon);
+                Console.WriteLine("Alamat : " + item.Alamat);
+                Console.WriteLine("Nama Spesialis : " + item.Nama_Spesialis);
+                Console.WriteLine();
+            }
+
             //READ SELECT Dokter
-            //var selectData = dokterRepositories.Get(2);
-            //Console.WriteLine("ID dokter: " + selectData.Id);
-            //Console.WriteLine("Nama  : " + selectData.Nama);
-            //Console.WriteLine("Jenis Kelamin : " + selectData.Jenis_kelamin);
-            //Console.WriteLine("No Telepon : " + selectData.No_telepon);
-            //Console.WriteLine("Alamat: " + selectData.Alamat);
-            //Console.WriteLine("ID Spesialis : " + selectData.Id_Spesialis);
-            //Console.WriteLine();
+            var selectData = dokterRepositories.Get(1);
+            Console.WriteLine("ID dokter: " + selectData.Id);
+            Console.WriteLine("Nama  : " + selectData.Nama);
+            Console.WriteLine("Jenis Kelamin : " + selectData.Jenis_kelamin);
+            Console.WriteLine("No Telepon : " + selectData.No_telepon);
+            Console.WriteLine("Alamat: " + selectData.Alamat);
+            Console.WriteLine("Nama Spesialis : " + selectData.Id_Spesialis);
+            Console.WriteLine();
 
 
-            ////INSERT Obat
-            //Dokter dokter = new Dokter(0, "Joese Rio", "laki - laki", "02929292", "Jakarta", 3);
+            ////INSERT dokter
+            //Dokter dokter = new Dokter(0, "Tester nih ya", "laki - laki", "02929292", "Jakarta", "3");
             //var result = dokterRepositories.Insert(dokter);
             //if (result > 0)
             //{
@@ -253,7 +265,7 @@ namespace challenge_CRUD
             //    Console.WriteLine("Failed to insert data");
             //}
 
-            //Update Obat
+            //Update Dokter
             //Dokter updateDokter = new Dokter(1005, "Joese Rio Telysana", "laki - laki", "02929292", "Jakarta", 3);
             //var hasil = dokterRepositories.Update(updateDokter);
             //if (hasil > 0)
@@ -265,77 +277,124 @@ namespace challenge_CRUD
             //    Console.WriteLine("Failed Update Data");
             //}
 
-            //DELETE Obat
-            //var delete = dokterRepositories.Delete(1004);
+            //DELETE Dokter
+            //var delete = dokterRepositories.Delete(1007);
 
             PasienRepositories pasienRepositories = new PasienRepositories();
             RekamMedisRepositories rekamMedisRepositories = new RekamMedisRepositories();
 
 
-            Console.WriteLine("Halo ini aplikasi Puskesmas");
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine();
+            //Console.WriteLine("Halo ini aplikasi Puskesmas");
+            //Console.WriteLine("-----------------------------");
+            //Console.WriteLine();
 
-            Console.WriteLine("Silahkan Isi Nama Pasien : ");
-            Console.Write("Nama : ");
-            string namaPasien = Console.ReadLine();
-            Console.Write("Jensi Kelamin : ");
-            string jenisKelamin = Console.ReadLine();
-            Console.Write("No Telepon : ");
-            string noTelepon = Console.ReadLine();
-            Console.Write("Alamat :  ");
-            string alamat = Console.ReadLine();
 
-            Console.WriteLine("Punya Riwayat diperiksa ? ");
-            Console.Write("pilihan YA / TIDAK : ");
-            string riwayat = Console.ReadLine();
-            int pilihanRiwayat;
-            if (riwayat == "YA")
-            {
-
-                var data = rekamMedisRepositories.Get();
-                foreach (var item in data)
-                {
-                    Console.WriteLine("ID Spesialis : " + item.Id);
-                    Console.WriteLine("Riwayat  : " + item.Riwayat);
-                    Console.WriteLine("ID Dokter : " + item.Id_Dokter);
-                    Console.WriteLine("ID Obat : " + item.Id_Obat);
-                    Console.WriteLine("Tanggal : " + item.Tanggal);
-                    Console.WriteLine();
-                }
-
-                Console.WriteLine("silahkan pilih ID riwayat : ");
-                pilihanRiwayat = Convert.ToInt32(Console.ReadLine());
-            }
-            else
-            {
-                Console.WriteLine("Silahkan isi riwayat : ");
-
-                RekamMedis rekamMedis = new RekamMedis(0, "Penyakit Kulit", 2, 4, "2022-10-20 09:13:00"); ;
-                var resultRekamMedis = rekamMedisRepositories.Insert(rekamMedis);
-                if (resultRekamMedis > 0)
-                {
-                    Console.WriteLine("Insert data berhasil");
-                }
-                else
-                {
-                    Console.WriteLine("Failed to insert data");
-                }
-
-            }
+            //Console.WriteLine("1. Proses Obat");
+            //Console.WriteLine("2. Proses Pasien");
+            //Console.WriteLine("3. Proses Dokter");
+            //Console.WriteLine("4. Proses Rekam Medis");
+            //Console.WriteLine("Silahkan Pilih Proses : ");
 
 
 
-            Pasien pasien = new Pasien(0, namaPasien, jenisKelamin, noTelepon, alamat, 0);
-            var result = pasienRepositories.Insert(pasien);
-            if (result > 0)
-            {
-                Console.WriteLine("Insert data berhasil");
-            }
-            else
-            {
-                Console.WriteLine("Failed to insert data");
-            }
+            //int pilihanProses = Convert.ToInt16(Console.ReadLine());
+      
+
+            //switch (pilihanProses)
+            //{
+            //    case 1:
+            //        Console.WriteLine("Silahkan isi Data Obat : ");
+            //        Console.Write("Nama : ");
+
+            //        break;
+
+            //    case 2:
+            //        try
+            //        {
+            //            Console.WriteLine("Silahkan Isi Data Pasien : ");
+            //            Console.Write("Nama : ");
+            //            string namaPasien = Console.ReadLine();
+            //            Console.Write("Jensi Kelamin : ");
+            //            string jenisKelamin = Console.ReadLine();
+            //            Console.Write("No Telepon : ");
+            //            string noTelepon = Console.ReadLine();
+            //            Console.Write("Alamat :  ");
+            //            string alamat = Console.ReadLine();
+
+            //            Console.WriteLine("Punya Riwayat diperiksa ? ");
+            //            Console.Write("pilihan YA / TIDAK : ");
+            //            string riwayat = Console.ReadLine();
+
+            //            string pilihan;
+
+            //            if (riwayat == "YA")
+            //            {
+
+            //                var data = rekamMedisRepositories.Get();
+            //                foreach (var item in data)
+            //                {
+            //                    Console.WriteLine("ID : " + item.Id);
+            //                    Console.WriteLine("Riwayat  : " + item.Riwayat);
+            //                    Console.WriteLine("ID Dokter : " + item.Id_Dokter);
+            //                    Console.WriteLine("ID Obat : " + item.Id_Obat);
+            //                    Console.WriteLine("Tanggal : " + item.Tanggal);
+            //                    Console.WriteLine();
+            //                }
+
+            //                Console.Write("silahkan pilih ID riwayat : ");
+            //                pilihan = Console.ReadLine();
+                        
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("Silahkan isi riwayat : ");
+
+            //                Console.Write("Keluhan penyakit : ");
+            //                string keluhan = Console.ReadLine();
+
+            //                RekamMedis rekamMedis = new RekamMedis(0, "Penyakit Kulit", 2, 4, "2022-10-20 09:13:00"); ;
+            //                var resultRekamMedis = rekamMedisRepositories.Insert(rekamMedis);
+            //                if (resultRekamMedis > 0)
+            //                {
+            //                    Console.WriteLine("Insert data berhasil");
+            //                }
+            //                else
+            //                {
+            //                    Console.WriteLine("Failed to insert data");
+            //                }
+
+
+            //            }
+
+            //            Pasien pasien = new Pasien(0, namaPasien, jenisKelamin, noTelepon, alamat, pilihan);
+            //            var result = pasienRepositories.Insert(pasien);
+            //            if (result > 0)
+            //            {
+            //                Console.WriteLine("Insert data berhasil");
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("Failed to insert data");
+            //            }
+
+            //        }
+            //        catch
+            //        {
+            //            Console.WriteLine("something Wrong..");
+            //        }
+
+
+            //        break;
+            //    case 3:
+            //        Console.WriteLine("Proses Dokter");
+            //        break;
+            //    case 4:
+            //        Console.WriteLine("Proses Rekam Medis");
+            //        break;
+
+            //};
+
+
 
         }
     }

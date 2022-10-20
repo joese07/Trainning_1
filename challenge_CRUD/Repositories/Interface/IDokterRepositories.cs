@@ -7,6 +7,8 @@ namespace challenge_CRUD.Repositories.Interface
     {
         public List<Dokter> Get();
 
+        public List<DokterView> Show();
+
         public Dokter Get(int Id);
 
         public int Insert(Dokter dokter);
