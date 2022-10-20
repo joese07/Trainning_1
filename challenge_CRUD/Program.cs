@@ -12,7 +12,7 @@ namespace challenge_CRUD
         static void Main(string[] args)
         {
             //READ Spesialis
-            //SpecialisRepositories spesialisRepositories = new SpecialisRepositories();
+            SpecialisRepositories spesialisRepositories = new SpecialisRepositories();
             //var data = spesialisRepositories.Get();
             //foreach (var item in data)
             //{
@@ -55,16 +55,9 @@ namespace challenge_CRUD
             //}
 
             //DELETE Data
-            //try
-            //{
-            //    var delete = spesialisRepositories.Delete(1002);
+             //var delete = spesialisRepositories.Delete(1006);
 
-            //    Console.WriteLine("Delete Successful");
-            //}
-            //catch
-            //{
-            //    Console.WriteLine("Failed Delete data");
-            //}
+         
 
 
             //READ Rekam Medis
@@ -115,7 +108,7 @@ namespace challenge_CRUD
             //}
 
             //DELETE Rekam Medis
-            //var delete = rekamMedisRepositories.Delete(1002);
+           // var delete = rekamMedisRepositories.Delete(3);
 
             //READ Pasien
             //PasienRepositories pasienRepositories = new PasienRepositories();
@@ -230,27 +223,27 @@ namespace challenge_CRUD
             //    Console.WriteLine();
             //}
 
-            var data = dokterRepositories.Show();
-            foreach (var item in data)
-            {
-                Console.WriteLine("ID dokter : " + item.Id);
-                Console.WriteLine("Nama  : " + item.Nama);
-                Console.WriteLine("Jenis Kelamin  : " + item.Jenis_kelamin);
-                Console.WriteLine("No Telepon : " + item.No_telepon);
-                Console.WriteLine("Alamat : " + item.Alamat);
-                Console.WriteLine("Nama Spesialis : " + item.Nama_Spesialis);
-                Console.WriteLine();
-            }
+            //var data = dokterRepositories.Show();
+            //foreach (var item in data)
+            //{
+            //    Console.WriteLine("ID dokter : " + item.Id);
+            //    Console.WriteLine("Nama  : " + item.Nama);
+            //    Console.WriteLine("Jenis Kelamin  : " + item.Jenis_kelamin);
+            //    Console.WriteLine("No Telepon : " + item.No_telepon);
+            //    Console.WriteLine("Alamat : " + item.Alamat);
+            //    Console.WriteLine("Nama Spesialis : " + item.Nama_Spesialis);
+            //    Console.WriteLine();
+            //}
 
             //READ SELECT Dokter
-            var selectData = dokterRepositories.Get(1);
-            Console.WriteLine("ID dokter: " + selectData.Id);
-            Console.WriteLine("Nama  : " + selectData.Nama);
-            Console.WriteLine("Jenis Kelamin : " + selectData.Jenis_kelamin);
-            Console.WriteLine("No Telepon : " + selectData.No_telepon);
-            Console.WriteLine("Alamat: " + selectData.Alamat);
-            Console.WriteLine("Nama Spesialis : " + selectData.Id_Spesialis);
-            Console.WriteLine();
+            //var selectData = dokterRepositories.Get(1);
+            //Console.WriteLine("ID dokter: " + selectData.Id);
+            //Console.WriteLine("Nama  : " + selectData.Nama);
+            //Console.WriteLine("Jenis Kelamin : " + selectData.Jenis_kelamin);
+            //Console.WriteLine("No Telepon : " + selectData.No_telepon);
+            //Console.WriteLine("Alamat: " + selectData.Alamat);
+            //Console.WriteLine("Nama Spesialis : " + selectData.Id_Spesialis);
+            //Console.WriteLine();
 
 
             ////INSERT dokter
@@ -280,8 +273,8 @@ namespace challenge_CRUD
             //DELETE Dokter
             //var delete = dokterRepositories.Delete(1007);
 
-            PasienRepositories pasienRepositories = new PasienRepositories();
-            RekamMedisRepositories rekamMedisRepositories = new RekamMedisRepositories();
+            //PasienRepositories pasienRepositories = new PasienRepositories();
+            //RekamMedisRepositories rekamMedisRepositories = new RekamMedisRepositories();
 
 
             //Console.WriteLine("Halo ini aplikasi Puskesmas");
