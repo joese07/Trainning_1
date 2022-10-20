@@ -86,7 +86,7 @@ namespace challenge_CRUD.Repositories.Data
                     {
                         while (sqlDataReader.Read())
                         {
-                            Pasien pasien = new Pasien(Convert.ToInt32(sqlDataReader[0]), sqlDataReader[1].ToString(), sqlDataReader[2].ToString(), sqlDataReader[3].ToString(), sqlDataReader[4].ToString(), sqlDataReader[5].ToString());
+                            Pasien pasien = new Pasien(Convert.ToInt32(sqlDataReader[0]), sqlDataReader[1].ToString(), sqlDataReader[2].ToString(), sqlDataReader[3].ToString(), sqlDataReader[4].ToString(), Convert.ToInt32(sqlDataReader[5]));
                             pasiens.Add(pasien);
                         }
                     }
@@ -143,7 +143,7 @@ namespace challenge_CRUD.Repositories.Data
                     {
                         while (sqlDataReader.Read())
                         {
-                            Pasien pasien = new Pasien(Convert.ToInt32(sqlDataReader[0]), sqlDataReader[1].ToString(), sqlDataReader[2].ToString(), sqlDataReader[3].ToString(), sqlDataReader[4].ToString(), sqlDataReader[5].ToString());
+                            Pasien pasien = new Pasien(Convert.ToInt32(sqlDataReader[0]), sqlDataReader[1].ToString(), sqlDataReader[2].ToString(), sqlDataReader[3].ToString(), sqlDataReader[4].ToString(), Convert.ToInt32(sqlDataReader[5]));
                            return pasien;
                         }
                     }

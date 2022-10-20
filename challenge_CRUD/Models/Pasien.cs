@@ -3,7 +3,7 @@ namespace challenge_CRUD.Models
 {
     public class Pasien
     {
-        public Pasien(int Id, string Nama, string Jenis_kelamin, string No_telepon, string Alamat, string Id_rekam_medis)
+        public Pasien(int Id, string Nama, string Jenis_kelamin, string No_telepon, string Alamat, int Id_rekam_medis)
         {
             this.Id = Id;
             this.Nama = Nama;
@@ -23,7 +23,7 @@ namespace challenge_CRUD.Models
 
         public string Alamat { get; private set; }
 
-        public string Id_rekam_medis { get; private set; }
+        public int Id_rekam_medis { get; private set; }
     }
 }
 
